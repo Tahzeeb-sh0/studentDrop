@@ -9,7 +9,9 @@
     "preview": "vite preview --port 3000"
   },
   "dependencies": {
+    "@types/axios": "^0.9.36",
     "autoprefixer": "^10.4.21",
+    "axios": "^1.12.2",
     "lucide-react": "^0.544.0",
     "postcss": "^8.4.49",
     "react": "^18.3.1",
