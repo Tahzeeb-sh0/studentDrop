@@ -12,10 +12,22 @@ body {
   color: #333;
 }
 
+html, body {
+  width: 100%;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
 .app {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+}
+
+/* Prevent layout bleed in main containers */
+.app,
+.main,
+.dashboard {
+  overflow-x: hidden;
 }
 
 /* Authentication Styles */
@@ -208,7 +220,7 @@ body {
 /* Dashboard Grid */
 .dashboard-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 1.5rem;
 }
 
@@ -218,6 +230,9 @@ body {
   padding: 1.5rem;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  max-width: 100%;
+  overflow: hidden;
+  position: relative; /* ensure inner accents are clipped */
 }
 
 .card:hover {
@@ -242,10 +257,24 @@ body {
   padding: 1rem;
   border-radius: 8px;
   text-align: center;
+  word-wrap: break-word;
+  overflow-wrap: anywhere;
+}
+
+/* Make media responsive inside cards */
+.card img,
+.card svg,
+.card canvas,
+.card video {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 
 .risk-level {
   margin-bottom: 1rem;
+  border-radius: 12px;
+  overflow: hidden; /* clip gradient backgrounds */
 }
 
 .risk-level.low {

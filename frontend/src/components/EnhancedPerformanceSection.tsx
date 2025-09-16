@@ -191,8 +191,8 @@ const EnhancedPerformanceSection: React.FC<EnhancedPerformanceSectionProps> = ({
   return (
     <div className="space-y-6">
       {/* Performance Overview Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-        <div className="bg-white rounded-2xl p-6 shadow-lg border-l-4 border-blue-500">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+        <div className="bg-white rounded-2xl p-6 shadow-md hover:shadow-lg transition-all border-l-4 border-blue-500 flex flex-col min-h-[160px]">
           <div className="flex items-center justify-between mb-4">
             <div className="p-3 bg-blue-100 rounded-xl">
               <Calendar className="w-6 h-6 text-blue-600" />
@@ -205,11 +205,13 @@ const EnhancedPerformanceSection: React.FC<EnhancedPerformanceSectionProps> = ({
               )}
             </div>
           </div>
-          <h3 className="text-2xl font-bold text-gray-900">{avgAttendance.toFixed(1)}%</h3>
+          <h3 className="text-2xl font-bold text-gray-900 break-words leading-tight">
+            <span className="truncate inline-block max-w-full align-bottom">{avgAttendance.toFixed(1)}%</span>
+          </h3>
           <p className="text-gray-600 text-sm">Average Attendance</p>
         </div>
 
-        <div className="bg-white rounded-2xl p-6 shadow-lg border-l-4 border-green-500">
+        <div className="bg-white rounded-2xl p-6 shadow-md hover:shadow-lg transition-all border-l-4 border-green-500 flex flex-col min-h-[160px]">
           <div className="flex items-center justify-between mb-4">
             <div className="p-3 bg-green-100 rounded-xl">
               <BookOpen className="w-6 h-6 text-green-600" />
@@ -222,38 +224,44 @@ const EnhancedPerformanceSection: React.FC<EnhancedPerformanceSectionProps> = ({
               )}
             </div>
           </div>
-          <h3 className="text-2xl font-bold text-gray-900">{avgScore.toFixed(1)}%</h3>
+          <h3 className="text-2xl font-bold text-gray-900 break-words leading-tight">
+            <span className="truncate inline-block max-w-full align-bottom">{avgScore.toFixed(1)}%</span>
+          </h3>
           <p className="text-gray-600 text-sm">Average Score</p>
         </div>
 
-        <div className="bg-white rounded-2xl p-6 shadow-lg border-l-4 border-purple-500">
+        <div className="bg-white rounded-2xl p-6 shadow-md hover:shadow-lg transition-all border-l-4 border-purple-500 flex flex-col min-h-[160px]">
           <div className="flex items-center justify-between mb-4">
             <div className="p-3 bg-purple-100 rounded-xl">
               <Activity className="w-6 h-6 text-purple-600" />
             </div>
             <div className="text-right">
               <div className="text-sm text-gray-500">Completed</div>
-              <div className="text-lg font-bold text-purple-600">
-                {completedActivities}/{totalActivities}
+              <div className="text-lg font-bold text-purple-600 break-words leading-tight">
+                <span className="truncate inline-block max-w-[12ch] align-bottom">{completedActivities}/{totalActivities}</span>
               </div>
             </div>
           </div>
-          <h3 className="text-2xl font-bold text-gray-900">{totalActivities}</h3>
+          <h3 className="text-2xl font-bold text-gray-900 break-words leading-tight">
+            <span className="truncate inline-block max-w-full align-bottom">{totalActivities}</span>
+          </h3>
           <p className="text-gray-600 text-sm">Total Activities</p>
         </div>
 
-        <div className="bg-white rounded-2xl p-6 shadow-lg border-l-4 border-orange-500">
+        <div className="bg-white rounded-2xl p-6 shadow-md hover:shadow-lg transition-all border-l-4 border-orange-500 flex flex-col min-h-[160px]">
           <div className="flex items-center justify-between mb-4">
             <div className="p-3 bg-orange-100 rounded-xl">
               <Target className="w-6 h-6 text-orange-600" />
             </div>
             <div className="text-right">
               <div className="text-sm text-gray-500">Pending</div>
-              <div className="text-lg font-bold text-orange-600">{pendingActivities}</div>
+              <div className="text-lg font-bold text-orange-600 break-words leading-tight">
+                <span className="truncate inline-block max-w-[8ch] align-bottom">{pendingActivities}</span>
+              </div>
             </div>
           </div>
-          <h3 className="text-2xl font-bold text-gray-900">
-            {Math.round((completedActivities / totalActivities) * 100)}%
+          <h3 className="text-2xl font-bold text-gray-900 break-words leading-tight">
+            <span className="truncate inline-block max-w-full align-bottom">{Math.round((completedActivities / totalActivities) * 100)}%</span>
           </h3>
           <p className="text-gray-600 text-sm">Completion Rate</p>
         </div>

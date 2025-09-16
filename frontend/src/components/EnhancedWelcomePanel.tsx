@@ -125,10 +125,10 @@ const EnhancedWelcomePanel: React.FC<EnhancedWelcomePanelProps> = ({
       </div>
 
       {/* Summary Cards Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {/* Attendance Card */}
         <div 
-          className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 cursor-pointer border-l-4 border-blue-500"
+          className="bg-white rounded-2xl p-6 shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer border-l-4 border-blue-500 flex flex-col min-h-[180px]"
           onClick={() => onViewDetails?.('attendance')}
         >
           <div className="flex items-center justify-between mb-4">
@@ -142,9 +142,9 @@ const EnhancedWelcomePanel: React.FC<EnhancedWelcomePanelProps> = ({
               </span>
             </div>
           </div>
-          <div className="space-y-2">
-            <h3 className="text-2xl font-bold text-gray-900">
-              {animatedValues.attendance}%
+          <div className="space-y-2 flex-1">
+            <h3 className="text-2xl font-bold text-gray-900 break-words leading-tight">
+              <span className="truncate inline-block max-w-full align-bottom">{animatedValues.attendance}%</span>
             </h3>
             <p className="text-gray-600 text-sm">Attendance Rate</p>
             <div className="w-full bg-gray-200 rounded-full h-2">
@@ -158,7 +158,7 @@ const EnhancedWelcomePanel: React.FC<EnhancedWelcomePanelProps> = ({
 
         {/* Average Score Card */}
         <div 
-          className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 cursor-pointer border-l-4 border-green-500"
+          className="bg-white rounded-2xl p-6 shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer border-l-4 border-green-500 flex flex-col min-h-[180px]"
           onClick={() => onViewDetails?.('scores')}
         >
           <div className="flex items-center justify-between mb-4">
@@ -167,14 +167,14 @@ const EnhancedWelcomePanel: React.FC<EnhancedWelcomePanelProps> = ({
             </div>
             <div className="text-right">
               <div className="text-sm text-gray-500">GPA</div>
-              <div className="text-lg font-bold text-green-600">
-                {animatedValues.gpa.toFixed(2)}
+              <div className="text-lg font-bold text-green-600 break-words leading-tight">
+                <span className="truncate inline-block max-w-[8ch] align-bottom">{animatedValues.gpa.toFixed(2)}</span>
               </div>
             </div>
           </div>
-          <div className="space-y-2">
-            <h3 className="text-2xl font-bold text-gray-900">
-              {animatedValues.averageScore}%
+          <div className="space-y-2 flex-1">
+            <h3 className="text-2xl font-bold text-gray-900 break-words leading-tight">
+              <span className="truncate inline-block max-w-full align-bottom">{animatedValues.averageScore}%</span>
             </h3>
             <p className="text-gray-600 text-sm">Average Score</p>
             <div className="flex items-center justify-between text-sm">
@@ -188,7 +188,7 @@ const EnhancedWelcomePanel: React.FC<EnhancedWelcomePanelProps> = ({
 
         {/* Risk Level Card */}
         <div 
-          className={`bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 cursor-pointer border-l-4 ${
+          className={`bg-white rounded-2xl p-6 shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer border-l-4 flex flex-col min-h-[180px] ${
             student.riskLevel === 'high' ? 'border-red-500' : 
             student.riskLevel === 'medium' ? 'border-orange-500' : 'border-green-500'
           }`}
@@ -205,9 +205,9 @@ const EnhancedWelcomePanel: React.FC<EnhancedWelcomePanelProps> = ({
               {student.riskLevel.toUpperCase()}
             </div>
           </div>
-          <div className="space-y-2">
-            <h3 className="text-2xl font-bold text-gray-900">
-              {animatedValues.riskPercentage}%
+          <div className="space-y-2 flex-1">
+            <h3 className="text-2xl font-bold text-gray-900 break-words leading-tight">
+              <span className="truncate inline-block max-w-full align-bottom">{animatedValues.riskPercentage}%</span>
             </h3>
             <p className="text-gray-600 text-sm">Dropout Risk</p>
             <div className="w-full bg-gray-200 rounded-full h-2">
@@ -225,7 +225,7 @@ const EnhancedWelcomePanel: React.FC<EnhancedWelcomePanelProps> = ({
 
         {/* Progress Card */}
         <div 
-          className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 cursor-pointer border-l-4 border-purple-500"
+          className="bg-white rounded-2xl p-6 shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer border-l-4 border-purple-500 flex flex-col min-h-[180px]"
           onClick={() => onViewDetails?.('progress')}
         >
           <div className="flex items-center justify-between mb-4">
@@ -234,14 +234,14 @@ const EnhancedWelcomePanel: React.FC<EnhancedWelcomePanelProps> = ({
             </div>
             <div className="text-right">
               <div className="text-sm text-gray-500">Credits</div>
-              <div className="text-lg font-bold text-purple-600">
-                {student.totalCredits}
+              <div className="text-lg font-bold text-purple-600 break-words leading-tight">
+                <span className="truncate inline-block max-w-[8ch] align-bottom">{student.totalCredits}</span>
               </div>
             </div>
           </div>
-          <div className="space-y-2">
-            <h3 className="text-2xl font-bold text-gray-900">
-              {student.completedAssignments}
+          <div className="space-y-2 flex-1">
+            <h3 className="text-2xl font-bold text-gray-900 break-words leading-tight">
+              <span className="truncate inline-block max-w-full align-bottom">{student.completedAssignments}</span>
             </h3>
             <p className="text-gray-600 text-sm">Completed Assignments</p>
             <div className="flex items-center justify-between text-sm">
@@ -257,22 +257,22 @@ const EnhancedWelcomePanel: React.FC<EnhancedWelcomePanelProps> = ({
       </div>
 
       {/* Quick Actions */}
-      <div className="bg-white rounded-2xl p-6 shadow-lg">
+      <div className="bg-white rounded-2xl p-6 shadow-md">
         <h3 className="text-lg font-semibold text-gray-900 mb-4">Quick Actions</h3>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          <button className="flex items-center justify-center space-x-2 p-4 bg-blue-50 hover:bg-blue-100 rounded-xl transition-colors">
+          <button className="flex items-center justify-center space-x-2 p-4 bg-blue-50 hover:bg-blue-100 rounded-xl transition-colors min-h-[56px]">
             <BookOpen className="w-5 h-5 text-blue-600" />
             <span className="text-sm font-medium text-blue-700">View Grades</span>
           </button>
-          <button className="flex items-center justify-center space-x-2 p-4 bg-green-50 hover:bg-green-100 rounded-xl transition-colors">
+          <button className="flex items-center justify-center space-x-2 p-4 bg-green-50 hover:bg-green-100 rounded-xl transition-colors min-h-[56px]">
             <Calendar className="w-5 h-5 text-green-600" />
             <span className="text-sm font-medium text-green-700">Schedule Meeting</span>
           </button>
-          <button className="flex items-center justify-center space-x-2 p-4 bg-orange-50 hover:bg-orange-100 rounded-xl transition-colors">
+          <button className="flex items-center justify-center space-x-2 p-4 bg-orange-50 hover:bg-orange-100 rounded-xl transition-colors min-h-[56px]">
             <AlertTriangle className="w-5 h-5 text-orange-600" />
             <span className="text-sm font-medium text-orange-700">Risk Analysis</span>
           </button>
-          <button className="flex items-center justify-center space-x-2 p-4 bg-purple-50 hover:bg-purple-100 rounded-xl transition-colors">
+          <button className="flex items-center justify-center space-x-2 p-4 bg-purple-50 hover:bg-purple-100 rounded-xl transition-colors min-h-[56px]">
             <Target className="w-5 h-5 text-purple-600" />
             <span className="text-sm font-medium text-purple-700">Set Goals</span>
           </button>
